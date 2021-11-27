@@ -4,6 +4,13 @@ from django.db import models
 from django.utils import timezone
 
 
+class Categoria(models.Model):
+    Abr = models.CharField(max_length=4)
+    Nombre = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.Abr+" - "+self.Nombre
+
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
@@ -26,3 +33,6 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+    
+    
+
